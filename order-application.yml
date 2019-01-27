@@ -1,27 +1,26 @@
-#��Ŀ�˿�
+#环境名称
+
+#项目启动的端口
 server:
-  #�˿ں�
   port: 8081
 
-#1:ע�����
+#1:注册服务
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 #  instance:
-#    hostname: order
+#    hostname: clientName
 
-#2:������
+#2:起名字
 spring:
   application:
     name: order
 
-
-
-#3:����jdbc
+#3:配置jdbc
 #jdbc
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///spring_cloud_sell?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: root
     password: admin
@@ -30,7 +29,7 @@ spring:
 mybatis:
   config-location: classpath:/mybatis-config.xml
   mapper-locations: classpath:/mapper/*.xml
-  type-aliases-package: com.gasin.order.domain
+  type-aliases-package: com.gasin.order.service.domain
 
 
 #log4j2
@@ -41,4 +40,5 @@ logging:
     com:
       gasin:
         order:
-          mapper: trace
+          service:
+            mapper: trace
