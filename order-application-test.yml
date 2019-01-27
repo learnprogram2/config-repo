@@ -1,0 +1,45 @@
+#环境名称
+env: dev
+
+#项目启动的端口
+server:
+  port: 8081
+
+#1:注册服务
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    hostname: clientName
+
+#2:起名字
+spring:
+  application:
+    name: order
+
+#3:配置jdbc
+#jdbc
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///spring_cloud_sell?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: admin
+    type: com.alibaba.druid.pool.DruidDataSource
+#myBatis
+mybatis:
+  config-location: classpath:/mybatis-config.xml
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.gasin.order.service.domain
+
+
+#log4j2
+#logging:
+#  config: classpath:log4j2.xml
+logging:
+  level:
+    com:
+      gasin:
+        order:
+          service:
+            mapper: trace
